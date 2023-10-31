@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg customnavbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">GP POST</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,13 +7,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
+            <a class="nav-link active" href="#">profilo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-disabled="true">Disabled</a>
+            <a class="nav-link active" aria-disabled="true">linkx</a>
           </li>
         </ul>
         <div>
@@ -22,11 +22,18 @@
                 <i class="bi bi-person-check-fill"></i>
             </a>
             <ul class="dropdown-menu nav-item">
-              <li><a class="dropdown-item" href="#">Accedi</a></li>
-              <li><a class="dropdown-item" href="#">Registrati</a></li>
+            @guest
+              <li><a class="dropdown-item" href="{{route('login')}}">Accedi</a></li>
+              <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
+            @endguest
+            @auth
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Esci</a></li>
+              <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.queryselector('#form-logout').submit();">Esci</a></li>
+              <form method="post" action="{{route('logout')}}" id="form-logout" class="d-none">
+            @csrf
+            </form>
             </ul>
+            @endauth
           </li>
         </div>
         <form class="d-flex" role="search">
