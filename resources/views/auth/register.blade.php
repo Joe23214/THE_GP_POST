@@ -3,7 +3,7 @@
         <div class="col-12 my-5">
             <h1 class="text-center display-1">Registrati qui!</h1>
         </div>
-    <form method="post" action="route{{'register'}}">
+    <form method="post" action="{{route('register')}}">
         @csrf
         @error('name')
             <div class="alert alert-danger">{{ $message }}</div>

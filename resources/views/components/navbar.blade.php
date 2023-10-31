@@ -15,6 +15,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-disabled="true">linkx</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-disabled="true">linky</a>
+          </li>
         </ul>
         <div>
             <li class="nav-item navbar-nav dropdown">
