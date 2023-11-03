@@ -9,16 +9,27 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Home</a>
           </li>
+          @auth
           <li class="nav-item">
-            <a class="nav-link active" href="#">profilo</a>
+            <a class="nav-link active" href="{{route('profile')}}">profilo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{{route('article.create')}}" aria-disabled="true">Inserisci un articolo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-disabled="true">linky</a>
+            <a class="nav-link active" href="{{route('article.index')}}"aria-disabled="true">i nostri articoli</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{route('careers')}}"aria-disabled="true">Lavora con noi</a>
+          </li>
+          @if(Auth::user()->is_admin)
+          <li><a class="dropdown-item"href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
+          @endif
+          @if(Auth::user()->is_revisor)
+          <li><a class="dropdown-item"href="{{route('revisor.dashboard')}}">Dashboard del revisore</a></li>
+          @endif
         </ul>
+        @endauth
         <div>
             <li class="nav-item navbar-nav dropdown">
             <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

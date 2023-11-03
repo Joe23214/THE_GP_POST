@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        $categories = ['politica', 'economia' , 'food&drink' , 'sport' , 'intrattenimento' , 'tech'];
+        $categories = ['politica', 'economia', 'food&drink', 'sport', 'intrattenimento' , 'tech'];
 
         foreach($categories as $category){
             Category::create([

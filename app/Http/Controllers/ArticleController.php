@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-       $articles = Article::orderBy('created_at','desc')->get();
+       $articles = Article::where('is_accepted',true)->orderBy('created_at','desc')->get();
        return view('article.index', compact('articles'));
     }
 
@@ -29,11 +30,17 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
+    public function profile()
+    { $current_user_id = auth()->user()->id;
+        $user_articles = User::find($current_user_id)->articles;
+       return view('user.profile', compact('user_articles'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
         $request->validate([
             'title' => 'required|unique:articles|min:5',
             'subtitle' => 'required|unique:articles|min:5',
@@ -42,7 +49,8 @@ class ArticleController extends Controller
             'category' => 'required',
 
         ]);
-
+        
+        
         Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
@@ -82,13 +90,23 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $article= Article::find($id);
+        $article->delete();
+        return redirect()->route('profile');
     }
     
     public function byCategory(Category $category){
-        $articles = $category->articles->sortByDesc('created_at');
+        $articles = $category->articles->sortByDesc('created_at')->filter(function($article){
+            return $article->is_accepted == true;
+        });
         return view('article.by-category', compact('category','articles'));
+    }
+    public function byWriter(User $user){
+        $articles = $user->articles->sortByDesc('created_at')->filter(function($article){
+            return $article->is_accepted == true;
+        });
+        return view('article.by-user', compact('user','articles'));
     }
 }
