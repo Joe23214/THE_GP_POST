@@ -23,7 +23,7 @@ Route::get('/profile/article', [ArticleController::class, 'profile'])->name('pro
 Route::delete('/profile/article/{id}',[ArticleController::class, 'destroy'])->name('delete');
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 Route::post('/careers/store', [PublicController::class, 'careersSubmit'])->name('careers.submit');
-
+Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
 
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
