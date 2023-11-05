@@ -15,6 +15,10 @@
             <div class="card">
                 <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="...">
                 <div class="card-body">
+                    @foreach ($article->tags as $tag)
+                    #{{$tag->name}}
+                        
+                    @endforeach
                     <h5 class="card-title">{{$article->title}}</h5>
                     <p class="card-text">{{$article->subtitle}}</p>
                     <p class="small text-muted d-flex justify-content-between align-items-center">

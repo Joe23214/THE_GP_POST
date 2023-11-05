@@ -13,6 +13,11 @@
         <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
+            <label for="tags" class="form-label">Tags:</label>
+            <input name="tags" id="tags" class="form-control" value="{{old('tags')}}">
+            <span class="small"> Dividi ogni tag con una virgola</span>
+          </div>
+          <div class="mb-3">
             <label for="title" class="form-label">Titolo Articolo:</label>
             <input name="title" type="text" class="form-control" id="title"
             value="{{ old('title') }}">

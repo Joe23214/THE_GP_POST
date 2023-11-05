@@ -9,6 +9,10 @@
                     <div class="card" style="width: 18rem;">
                         <img src="{{Storage::url($articles->img)}}" class="card-img-top" alt="{{ $articles->title }}">
                         <div class="card-body">
+                            @foreach ($article->tags as $tag)
+                            #{{$tag->name}}
+                                
+                            @endforeach
                             <h5 class="card-title">{{ $articles->title }}</h5>
                             <p class="card-text">{{ $articles->subtitle }}</p>
                             <a href="{{route('article.byCategory',['Category'=> $article->category->id])}}" class="text-uted text-capitalize small">{{$article->category->name}}</a>
