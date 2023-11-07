@@ -23,6 +23,7 @@
                     <p class="card-text">{{$article->subtitle}}</p>
                     <p class="small text-muted d-flex justify-content-between align-items-center">
                         Redatto il {{$article->created_at->format('d/m/Y')}} da {{$article->user->name}}
+                        <span class="text-muted"> tempo di lettura {{$article->readDuration()}} min</span>
                         <a href="{{route('article.byCategory', ['category' => $article->category->id])}}" class="small text-muted fst-italic text-capitalize">{{$article->category->name}}</a>
                         <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-primary">scopri di più</a>
                         <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-primary">{{$article->category->name}}</a>

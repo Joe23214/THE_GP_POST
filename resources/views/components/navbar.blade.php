@@ -28,6 +28,9 @@
           @if(Auth::user()->is_revisor)
           <li><a class="dropdown-item"href="{{route('revisor.dashboard')}}">Dashboard del revisore</a></li>
           @endif
+          @if(Auth::user()->is_writer)
+          <li><a class="dropdown-item"href="{{route('writer.dashboard')}}">Dashboard del redattore</a></li>
+          @endif
         </ul>
         @endauth
         <div>

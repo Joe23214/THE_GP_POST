@@ -33,6 +33,7 @@
                                 Non Categorizzato
                             </p>
                             @endif
+                            <span class="text-muted"> tempo di lettura {{$article->readDuration()}} min</span>
                             <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-primary">scopri di più</a>
                             <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-primary">{{$article->category->name}}</a>
                         </p>

@@ -14,8 +14,16 @@
     <div class="container my-3">
         <div class="row">
             <div class="col-12 py-3">
+                <h3 class="text-center mb-3">Richieste come amministratore</h3>
+                <x-request-table :adminRequest="$adminRequest" role="Admin"/>
+            </div>
+        </div>
+    </div>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-12 py-3">
                 <h3 class="text-center mb-3">Articoli in fase di revisione</h3>
-                <x-writer-articles-table :articles="$unrevisionedArticles"/>
+                <x-writer-articles-table :articles="$unrevisionedArticles" />
             </div>
         </div>
     </div>
@@ -23,15 +31,17 @@
         <div class="row">
             <div class="col-12 py-3">
                 <h3 class="text-center mb-3">Articoli pubblicati</h3>
-                <x-writer-articles-table :articles="$acceptedArticles"/>
+                <x-writer-articles-table :articles="$acceptedArticles" />
             </div>
         </div>
     </div>
-    <div class="container my-3">
-        <div class="row">
-            <div class="col-12 py-3">
-                <h3 class="text-center mb-3">articoli respinti</h3>
-                <x-writer-articles-table :articles="$rejectedArticles"/>
+
+    <hr>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2> Articoli respinti</h2>
+                <x-writer-articles-table :articles="$rejectedArticles" />
             </div>
         </div>
     </div>
