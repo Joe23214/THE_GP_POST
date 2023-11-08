@@ -23,13 +23,13 @@
             <a class="nav-link active" href="{{route('careers')}}"aria-disabled="true">Lavora con noi</a>
           </li>
           @if(Auth::user()->is_admin)
-          <li><a class="dropdown-item"href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
+          <li><a class="nav-link active dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
           @endif
           @if(Auth::user()->is_revisor)
-          <li><a class="dropdown-item"href="{{route('revisor.dashboard')}}">Dashboard del revisore</a></li>
+          <li><a class="nav-link activedropdown-item" href="{{route('revisor.dashboard')}}">Dashboard del revisore</a></li>
           @endif
           @if(Auth::user()->is_writer)
-          <li><a class="dropdown-item"href="{{route('writer.dashboard')}}">Dashboard del redattore</a></li>
+          <li><a class="nav-link active dropdown-item" href="{{route('writer.dashboard')}}">Dashboard del redattore</a></li>
           @endif
         </ul>
         @endauth
@@ -44,8 +44,7 @@
               <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
             @endguest
             @auth
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.queryselector('#form-logout').submit();">Esci</a></li>
+              <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
               <form method="post" action="{{route('logout')}}" id="form-logout" class="d-none">
             @csrf
             </form>

@@ -61,7 +61,7 @@
             <div class="row">
                 <h3 class="text-center py-5">Candidati qui!</h3>
             </div>
-            <form action="" method="post">
+            <form action="{{route('careers.submit')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <div class="mb-3">

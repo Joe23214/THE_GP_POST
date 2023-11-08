@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 
@@ -22,13 +23,13 @@ Route::get('/article/category/{category}', [ArticleController::class, 'byCategor
 Route::get('/profile/article', [ArticleController::class, 'profile'])->name('profile');
 Route::delete('/profile/article/{id}',[ArticleController::class, 'destroy'])->name('delete');
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
-Route::post('/careers/store', [PublicController::class, 'careersSubmit'])->name('careers.submit');
+Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careers.submit');
 Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
 
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/admin/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
-    Route::get('/admin/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
+    Route::get('/admin/{user}/set-Admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
+    Route::get('/admin/{user}/set-Revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
     Route::get('/admin/{user}/set-Writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
     Route::put('/admin/edit/{tag}/tag', [AdminController::class,'editTag'])->name('admin.editTag');
     Route::delete('/admin/delete/{tag}/tag', [AdmoinController::class, 'deleteTag'])->name('admin.deleteTag');

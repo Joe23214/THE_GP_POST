@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Mail\CareerRequestMail;
@@ -21,18 +22,20 @@ class PublicController extends Controller
         return view('careers');
     }
     public function careersSubmit(Request $request){
+
         $request->validate([
             'role' => 'required',
             'email' => 'required|email',
             'message' => 'required',
         ]);
 
-        $user = Auth::user();
-        $role = $request->input('roles');
-        $email = $request->input('email');
-        $message = $request->input('message');
+        $user = User::find(auth()->user());
+        $role = $request->role;
+        $email = $request->email;
+        $message = $request->message;
         $requestMail = new CareerRequestMail(compact('role', 'email', 'message'));
-        Mail::to('admin@thegppost')->send($requestMail);
+        Mail::to('admin@thegppost')->send(new CareerRequestMail(compact('role', 'email', 'message')));
+
 
         switch($role){
             case 'admin';

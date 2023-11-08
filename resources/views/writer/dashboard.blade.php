@@ -10,17 +10,8 @@
         {{session('message')}}
     </div>
     @endif
-
     <div class="container my-3">
-        <div class="row">
-            <div class="col-12 py-3">
-                <h3 class="text-center mb-3">Richieste come amministratore</h3>
-                <x-request-table :adminRequest="$adminRequest" role="Admin"/>
-            </div>
-        </div>
-    </div>
-    <div class="container my-3">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-12 py-3">
                 <h3 class="text-center mb-3">Articoli in fase di revisione</h3>
                 <x-writer-articles-table :articles="$unrevisionedArticles" />
@@ -28,7 +19,7 @@
         </div>
     </div>
     <div class="container my-3">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-12 py-3">
                 <h3 class="text-center mb-3">Articoli pubblicati</h3>
                 <x-writer-articles-table :articles="$acceptedArticles" />

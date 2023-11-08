@@ -55,7 +55,7 @@ class ArticleController extends Controller
         ]);
         
         
-        Article::create([
+        $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
