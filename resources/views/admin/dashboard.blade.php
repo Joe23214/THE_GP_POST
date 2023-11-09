@@ -39,7 +39,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 py-3">
                     <h3 class="text-center mb-3">richieste per ruolo redattore</h3>
-                    <x-requests-table user="$user" :roleRequests="$writerRequests" role="redattore"/> />
+                    <x-requests-table user="$user" :roleRequests="$writerRequests" role="redattore"/> 
                 </div>
             </div>
         </div>
