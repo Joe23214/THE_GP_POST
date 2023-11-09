@@ -23,7 +23,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2> Articoli pubblicati</h2>
-                <x-articles-table :articles="$accepteddArticles"></x-articles-table>
+                <x-articles-table :articles="$acceptedArticles"></x-articles-table>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2> Articoli respinti</h2>
-                <x-articles-table :articles="$rejecteddArticles"></x-articles-table>
+                <x-articles-table :articles="$rejectedArticles"></x-articles-table>
             </div>
         </div>
     </div>
