@@ -22,6 +22,9 @@ Route::get('/article/{article:slug}/show/', [ArticleController::class, 'show' ])
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory' ])->name('article.byCategory');
 Route::get('/profile/article', [ArticleController::class, 'profile'])->name('profile');
 Route::delete('/profile/article/{id}',[ArticleController::class, 'destroy'])->name('delete');
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth')->name('profile');
+Route::get('/profile', [ProfileController::class, 'articles'])->middleware('auth')->name('profile');
+Route::get('/profile/edit-information', [ProfileController::class, 'editInfoUser'])->name('edit.info');
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careers.submit');
 Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');

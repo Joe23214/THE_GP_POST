@@ -25,7 +25,6 @@
                         <h5 class="card-title">{{$article->title}}</h5>
                         <p class="card-text">{{$article->subtitle}}</p>
                         <p class="small text-muted d-flex justify-content-between align-items-center">
-                            Redatto il {{$article->created_at->format('d/m/Y')}} da {{$article->user->name}}
                             @if($article->category)
                             <a href="{{route('article.byCategory', ['category' => $article->category->id])}}" class="small text-muted fst-italic text-capitalize">{{$article->category->name}}</a>
                             @else
@@ -33,10 +32,11 @@
                                 Non Categorizzato
                             </p>
                             @endif
-                            <span class="text-muted"> tempo di lettura {{$article->readDuration()}} min</span>
-                            <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-primary">scopri di più</a>
-                            <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-primary">{{$article->category->name}}</a>
                         </p>
+                        <div class="card-footer text-muted d-flex justify-content-between align-items-center">
+                            <a class="" href="{{route('article.byUser', ['user' => $article->user->id])}}">Redatto il{{$article->created_at->format('d/m/Y')}} da {{$article->user->name}}</a>
+                            <a href="{{'article.show', compact('article')}}" class="btn btn-info"> Leggi</a>
+                        </div> 
                     </div>
                 </div>
             </div>

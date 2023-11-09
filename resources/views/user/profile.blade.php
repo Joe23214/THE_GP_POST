@@ -1,40 +1,85 @@
-<x-layout>
-    <div class="container-fluid p-5 bg-info text-center">
-        <div class="row justify-content-center">
-            <h1 class="display-1">
-                Tutti gli Articoli di {{auth()->user()->name}}
-            </h1>
-        </div>
-    </div>
-    
-    
-    <div class="container my-5">
-        <div class="row justify-content-around">
-            @foreach ($user_articles as $article)
 
-            <div class="col-12 col-md-3">
-                <div class="card">
-                    <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$article->title}}</h5>
-                        <p class="card-text">{{$article->subtitle}}</p>
-                        <p class="small text-muted d-flex justify-content-between align-items-center">
-                            Redatto il {{$article->created_at->format('d/m/Y')}} da {{$article->user->name}}
-                            <a href="{{route('article.byCategory', ['category' => $article->category->id])}}" class="small text-muted fst-italic text-capitalize">{{$article->category->name}}</a>
-                            <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-primary">scopri di più</a>
-                            <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-primary">{{$article->category->name}}</a>
-                            <form action="{{route('delete', $article->id)}}" method="post">
-                                @csrf @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger"><i class="bi bi-trash-fill"></i></button>
-                                
-                            </form>
-                            
-                        </p>
+
+<style>
+    .container{
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.36);
+        margin-top: 8%;
+        padding: 30px 40px 30px 40px;
+        border-radius: 10px;
+    }
+    
+    .card{
+        margin-left: 15%;
+    }
+    
+    img{
+        max-width: 300px;
+        max-height: 200px;
+    }
+</style>
+<x-layout>   
+    <div class="container mb-5">
+        <div class="col-12">
+            <div class="form-group">
+                <div class="mb-3">
+                    <h3 class="text-center">
+                        Profilo di {{auth()->user()->name}}
+                    </h3>
+                </div>
+                {{-- Current username --}}
+                <div class="mb-3">
+                    <label for="name">nome</label>
+                    <input type="text" class="form-control-plaintext" value="{{ auth()->user()->name }}">
+                </div>
+                {{-- Current userEmail --}}
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control-plaintext" value="{{ auth()->user()->email }}">
+                </div>
+                <div class="mb-3">
+                    <div class="edit-info">
+                        {{-- <a class="btn btn-primary" href="{{ route('edit.info') }}">Edit Profile Information</a> --}}
                     </div>
                 </div>
             </div>
-                
+        </div>
+    </div>
+    @if (auth()->user()->is_writer)
+    <h3 class="text-center py-5">All publiched</h3>
+    <div class="container-fluid py-5">
+        <div class="row">
+            @foreach ($user_article as $article)
+            <div class="col-4">
+                <div class="card" mb-5 style="width: 18rem;">
+                    <img src="{{ Storage::url($article->image) }}" class="card-img-top" alt="{{ $article->title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $article->title }}</h5>
+                        <p class="card-text">{{ $article->subtitle }}</p>
+                        <hr>
+                        <p class="card-text content">{{ $article->content }}</p>
+                        <hr>
+                        <p>Author: <a href="#" class="btn btn-outline-dark btn-sm my-1">{{ $article->user->name }}</a></p>
+                        <p>Category: <a href="/homepage/article-category/{{ $article->category->id }}" class="btn btn-outline-dark btn-sm my-1">{{ $article->category->name }}</a></p>
+                        @if (auth()->check())
+                        @if (auth()->user()->id == $article->user_id)
+                        <a class="btn btn-primary my-2" href="/profile/edit-post/{{ $article->id }}">Edit</a>
+                        <form action="/profile/delete-post/{{ $article->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">DELETE</button>
+                        </form>
+                        @endif
+                        @endif
+                    </div>
+                </div>
+            </div>
             @endforeach
         </div>
     </div>
+    @endif
+    
 </x-layout>
