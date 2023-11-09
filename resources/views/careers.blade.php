@@ -70,7 +70,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="roles">Ruoli</label>
-                        <select class="form-select" name="roles" id="roles">
+                        <select class="form-select" name="role" id="roles">
                             <option value="admin">Admin</option>
                             <option value="revisor">Revisor</option>
                             <option value="writer">Writer</option>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="user-description">Perchè dovremmo assumerti?</label>
-                        <textarea class="form-control" name="presentation" id="user-description" rows="3" placeholder="Parlaci di te in questa sezione..."></textarea>
+                        <textarea class="form-control" name="message" id="user-description" rows="3" placeholder="Parlaci di te in questa sezione..."></textarea>
                     </div>
                     <div class="btn">
                         <button type="submit" class="btn btn-outline-primary">Candidati</button>

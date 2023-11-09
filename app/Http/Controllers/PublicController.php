@@ -29,7 +29,7 @@ class PublicController extends Controller
             'message' => 'required',
         ]);
 
-        $user = User::find(auth()->user());
+        $user = Auth::user();
         $role = $request->role;
         $email = $request->email;
         $message = $request->message;

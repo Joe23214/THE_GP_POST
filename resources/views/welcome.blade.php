@@ -1,4 +1,4 @@
-<x-layout></x-layout>
+<x-layout>
 
 
 <div class="container-fluid">
@@ -46,3 +46,4 @@
         </div>
     </div>
 </div>
+</x-layout>
