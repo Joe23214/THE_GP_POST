@@ -41,7 +41,7 @@ public function setWriter(User $user){
 }
 public function editTag(Request $request, Tag $tag){
     $request->validate([
-        'name' => 'required|uinque:tags',
+        'name' => 'required|unique:tags',
     ]);
 
     $tag->update([
@@ -50,7 +50,7 @@ public function editTag(Request $request, Tag $tag){
     ]);
     return redirect(route('admin.dashboard'))->with('message', 'hai correttamente aggiornato il tag');
 }
-public function delteTag(Tag $tag){
+public function deleteTag(Tag $tag){
     foreach($tag->articles as $article){
         $article->tags()->detach($tag);
     }

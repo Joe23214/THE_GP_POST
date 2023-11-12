@@ -13,18 +13,18 @@
         <tr>
             <th scope="row">{{$metaInfo->id}}</th>
             <td>{{$metaInfo->name}}</td>
-            <td>{{count($MetaInfo->articles)}}</td>
-            @if(metaType == 'tags')
+            <td>{{count($metaInfo->articles)}}</td>
+            @if($metaType == 'tags')
             <td>
-                <form action="{{route('admin.editTag',['tag' => $metaInfo])}}" method="POST">
+                <form action="{{route('admin.editTag', ['tag' => $metaInfo])}}" method="POST">
                     @csrf
                     @method('put')
-                    <input type="text" name="name" placeholder="Nuovo nome " class="form-control w-50 d-inline">
+                    <input type="text" name="name" placeholder="Nuovo nome" class="form-control w-50 d-inline">
                     <button type="submit" class="btn btn-info">Aggiorna</button>
                 </form>
             </td>
             <td>
-                <form action="{{route('admin.deleteTag', ['tag' =>$metaInfo])}}" method="POST">
+                <form action="{{route('admin.deleteTag', ['tag' => $metaInfo])}}" method="POST">
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger">elimina</button>
@@ -32,7 +32,7 @@
             </td>
              @else
              <td>
-                <form action="{{route('admin.editCategory',['category' => $metaInfo])}}" method="POST">
+                <form action="{{route('admin.editCategory', ['category' => $metaInfo])}}" method="POST">
                     @csrf
                     @method('put')
                     <input type="text" name="name" placeholder="nuovo nome" class="form-control w-50 d-inline">
@@ -40,7 +40,7 @@
                 </form>
             </td>
             <td>
-                <form {{route('admin.deleteCategory', ['category' =>$metaInfo])}}" method="POST">
+                <form {{route('admin.deleteCategory', ['category' => $metaInfo])}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">elimina</button>
