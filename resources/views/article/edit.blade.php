@@ -22,6 +22,7 @@
           <form method="post" action="{{route('article.update', compact('article'))}}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            
             <div class="mb-3">
               <label for="tags" class="form-label">Tags:</label>
               <input name="tags" id="tags" class="form-control" value={{$article->tags->implode('name', ',')}}>
@@ -44,7 +45,7 @@
             <div class="mb-3 my-3">
               <label for="body" class="form-label">Corpo del testo:</label>
               
-              <text-area name="body" class="form-control" id="body" cols="30" row="7">{{$article->body}}</text-area>
+              <input name="body" class="form-control" id="body" type="body">{{$article->body}}</input>
               
             </div>
             <div class="mb-3">
