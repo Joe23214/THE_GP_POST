@@ -1,14 +1,29 @@
 <x-layout>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&family=Roboto:ital,wght@1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 
-<div class="container-fluid">
+
+        
+        h1{
+            font-family: 'Edu TAS Beginner', cursive;
+            
+        }
+
+        h2{
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 50px;
+        }
+
+        p{
+            font-family: 'Noto Sans Kawi', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+<div class="container">
     <div class="row">
-        <div class="col-12">
-            <h1 class="text-center my-5 display-1">THE GP POST</h1>
-        </div>
-        <div class="col-12">
-            <h2 class="diplay-3 text-center my-5">Ultime notizie:</h2>
-        </div>
         @if(session('message'))
         <div class="alert alert-success text-center">
             {{session('message')}}
@@ -23,20 +38,26 @@
                 </ul>
             </div>
         @endif
-        <div class="row">
+        <div class="col-12">
+            <h1 class="text-center my-5 display-1 text-success">THE GP POST</h1>
+        </div>
+        <div class="col-12">
+            <h2 class="diplay-3 text-center my-5">Ultime notizie:</h2>
+        </div>
+        <div class="row justify-content-center p-1">
             @auth
             @foreach ($articles as $article)
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3 p-1">
                 <div class="card">
                     <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="small">
+                        <p class="small text-success">
                             @foreach ($article->tags as $tag)
                             #{{$tag->name}}
                                 
                             @endforeach
                         </p>
-                        <h5 class="card-title">{{$article->title}}</h5>
+                        <h5 class="card-title titolocar">{{$article->title}}</h5>
                         <p class="card-text">{{$article->subtitle}}</p>
                         <p class="small text-muted d-flex justify-content-between align-items-center">
                             @if($article->category)
@@ -47,10 +68,18 @@
                             </p>
                             @endif
                         </p>
-                        <div class="card-footer text-muted d-flex justify-content-between align-items-center">
-                            {{-- <a class="" href="{{route('article.byUser', ['user' => $article->user->id])}}">Redatto il{{$article->created_at->format('d/m/Y')}} da {{$article->user->name}}</a> --}}
-                            <p>Author: <a href="#" class="btn btn-outline-dark btn-sm my-1">{{$article->user->name}}</a> Redatto il{{$article->created_at->format('d/m/Y')}}</p>
-                            {{-- <a href="{{route('article.show'), compact('article')}}" class="btn btn-info"> Leggi</a> --}}
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-3 p-1 m-1"><p class=" text-dark">Autore: <a href="#" class="btn btn-light my-1">{{$article->user->name}}</a></p>
+                                </div>
+                                <div class="col-3 p-1 m-1">
+                                    <p> Redatto il {{$article->created_at->format('d/m/Y')}}</p>
+
+                                </div>
+                                <div class="col-3 p-1 m-1">
+                                    <a href="{{route('article.show' , compact('article'))}}" class="btn btn-outline-success">Leggi l'articolo</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

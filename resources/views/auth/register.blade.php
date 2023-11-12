@@ -3,6 +3,16 @@
         <div class="col-12 my-5">
             <h1 class="text-center display-1">Registrati qui!</h1>
         </div>
+        <div class="col-6 my-5">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
     <form method="post" action="{{route('register')}}">
         @csrf
         @error('name')

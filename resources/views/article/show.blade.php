@@ -1,6 +1,28 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&family=Roboto:ital,wght@1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    h1{
+        font-family: 'Edu TAS Beginner', cursive;
+        
+    }
+
+    h2{
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 50px;
+    }
+
+    p{
+        font-family: 'Noto Sans Kawi', sans-serif;
+        font-family: 'Roboto', sans-serif;
+    }
+    .sfondox{
+     background-color: rgb(218, 199, 121);
+    }
+</style>
 <x-layout>
 
-    <div class="container-fluid p-5 bg-info text-center">
+    <div class="container-fluid p-5 text-center">
         <div class="row justify content-center">
             <h1 class="display-1">
                 {{$article->title}}
@@ -9,7 +31,7 @@
     </div>
 
     <div class="container my-5">
-        <div class="row justify-content-around">
+        <div class="row justify-content-center">
             <div class="col-12 col-md-3">
                 <div class="card">
                     <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
@@ -21,7 +43,7 @@
                                 <hr>
                                 <p>{{$article->body}}</p>
                                 <div class="text-center">
-                                    <a href="{{route('article.index')}}" class="btn btn-outline-primary"> Torna agli articoli</a>
+                                    <a href="{{route('article.index')}}" class="btn btn-outline-dark my-2"> Torna agli articoli</a>
                                     @if(Auth::user() && Auth::user()->is_revisor)
                                     <a href="{{route('revisor.acceptArticle', compact('article'))}}" class="btn btn-success">accetta articolo</a>
                                     <a href="{{route('revisor.rejectArticle', compact('article'))}}" class="btn btn-danger">rifiuta articolo</a>

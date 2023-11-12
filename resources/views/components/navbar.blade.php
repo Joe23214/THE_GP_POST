@@ -1,50 +1,82 @@
-<nav class="navbar navbar-expand-lg customnavbar">
+<style>
+  .navbar{
+    background-color: rgb(218, 199, 121);
+  }
+
+  /* .navbar-custom{
+    margin: 5vh 15vh 0vh 15vh ;
+    background-color: rgb(218, 199, 121);
+    backdrop-filter: blur(15px);
+    border: 2px solid #198754;
+    border-radius: 20px;
+} */
+.transition{
+    transition: 2s;
+}
+
+.backgroundnav{
+    transition: .1s;
+    
+}
+
+.backgroundnav:hover{
+    transform: scale(1.1);
+    color: rgb(249, 249, 249) !important;
+    background-color: rgb(125, 187, 144);
+}
+
+
+
+</style>
+
+
+<nav class="navbar navbar-expand-lg customnavbar transition">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">GP POST</a>
+      <a class="navbar-brand text-success backgroundnav" href="#">GP POST</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Home</a>
+            <a class="nav-link active text-success backgroundnav" aria-current="page" href="{{route('welcome')}}">Home</a>
           </li>
           @auth
           <li class="nav-item">
-            <a class="nav-link active" href="{{route('profile')}}">profilo</a>
+            <a class="nav-link active text-success backgroundnav" href="{{route('profile')}}">profilo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{route('article.create')}}" aria-disabled="true">Inserisci un articolo</a>
+            <a class="nav-link active text-success backgroundnav" href="{{route('article.create')}}" aria-disabled="true">Inserisci un articolo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{route('article.index')}}"aria-disabled="true">i nostri articoli</a>
+            <a class="nav-link active text-success backgroundnav" href="{{route('article.index')}}"aria-disabled="true">i nostri articoli</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{route('careers')}}"aria-disabled="true">Lavora con noi</a>
+            <a class="nav-link active text-success backgroundnav" href="{{route('careers')}}"aria-disabled="true">Lavora con noi</a>
           </li>
           @if(Auth::user()->is_admin)
-          <li><a class="nav-link active dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
+          <li><a class="nav-link active text-success backgroundnav" href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
           @endif
           @if(Auth::user()->is_revisor)
-          <li><a class="nav-link active activedropdown-item" href="{{route('revisor.dashboard')}}">Dashboard del revisore</a></li>
+          <li><a class="nav-link active active text-success backgroundnav" href="{{route('revisor.dashboard')}}">Dashboard del revisore</a></li>
           @endif
           @if(Auth::user()->is_writer)
-          <li><a class="nav-link active dropdown-item" href="{{route('writer.dashboard')}}">Dashboard del redattore</a></li>
+          <li><a class="nav-link active text-success backgroundnav" href="{{route('writer.dashboard')}}">Dashboard del redattore</a></li>
           @endif
         </ul>
         @endauth
         <div>
-            <li class="nav-item navbar-nav dropdown">
-            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item navbar-nav dropdown text-success">
+            <a class="nav-link active dropdown-toggle text-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-check-fill"></i>
             </a>
             <ul class="dropdown-menu nav-item">
             @guest
-              <li><a class="dropdown-item" href="{{route('login')}}">Accedi</a></li>
-              <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
+              <li><a class="dropdown-item text-success backgroundnav" href="{{route('login')}}">Accedi</a></li>
+              <li><a class="dropdown-item text-success backgroundnav" href="{{route('register')}}">Registrati</a></li>
             @endguest
             @auth
-              <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
+              <li><a class="dropdown-item text-success backgroundnav" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
               <form method="post" action="{{route('logout')}}" id="form-logout" class="d-none">
             @csrf
             </form>
@@ -54,7 +86,7 @@
         </div>
         <form class="d-flex" method="GET" action="{{route('article.search')}}">
           <input class="form-control me-2" type="search" placeholder="Cosa stai cercando?" aria-label="Search"  name="query">
-          <button class="btn btn-outline-info" type="submit">cerca</button>
+          <button class="btn btn-outline-success" type="submit">cerca</button>
         </form>
       </div>
     </div>

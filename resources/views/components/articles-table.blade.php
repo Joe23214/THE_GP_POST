@@ -1,5 +1,5 @@
 <table class="table">
-    <thead>
+    <thead class="table-dark">
         <tr>
             <th scope="col">#</th>
             <th scope="col">titolo</th>
@@ -17,9 +17,9 @@
                 <td>{{ $article->user->name }}</td>
                 <td>
                     @if(is_null($article->is_accepted))
-                    <a href="{{route('article.show', compact('article'))}}" class="btn btn-info" >leggi l'articolo</a>
+                    <a href="{{route('article.show', compact('article'))}}" class="btn btn-success" >leggi l'articolo</a>
                     @else
-                    <a href="{{route('revisor.undoArticle', compact('article'))}}" class="btn btn-info" >Riporta in revisione</a>
+                    <a href="{{route('revisor.undoArticle', compact('article'))}}" class="btn btn-success" >Riporta in revisione</a>
                     @endif
                 </td>
             </tr>

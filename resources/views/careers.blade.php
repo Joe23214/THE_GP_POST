@@ -1,5 +1,8 @@
 <x-layout>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&family=Roboto:ital,wght@1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
         .roles{
             margin-left: 6%;
         }
@@ -12,11 +15,30 @@
             max-width: 200px;
             max-height: 200px;
         }
+        
+        
+        h1{
+            font-family: 'Edu TAS Beginner', cursive;
+            
+        }
+
+        h2{
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 50px;
+        }
+
+        p{
+            font-family: 'Noto Sans Kawi', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+        .sfondox{
+         background-color: rgb(218, 199, 121);
+        }
     </style>
     <div class="container-fluid mb-5">
         <div class="col-12">
             <div class="row">
-                <h3 class="text-center py-5">Lavora con noi</h3>
+                <h1 class="text-center py-5 display-1">Lavora con noi</h1>
             </div>
             @if(session('message'))
             <div class="alert alert-success text-center">
@@ -72,8 +94,9 @@
     <hr>
     <div class="container mb-4">
         <div class="col-12">
+            <div class="sfondox p-3">
             <div class="row">
-                <h3 class="text-center py-5">Candidati qui!</h3>
+                <h2 class="text-center py-5">Candidati qui!</h2>
             </div>
             <form action="{{route('careers.submit')}}" method="post">
                 @csrf
@@ -95,10 +118,11 @@
                         <textarea class="form-control" name="message" id="user-description" rows="3" placeholder="Parlaci di te in questa sezione..."></textarea>
                     </div>
                     <div class="btn">
-                        <button type="submit" class="btn btn-outline-primary">Candidati</button>
+                        <button type="submit" class="btn btn-success">Candidati</button>
                     </div>
                 </div>
             </form>
+        </div>
         </div>
     </div>
 </x-layout>
