@@ -48,7 +48,7 @@ class ArticleController extends Controller
             'title' => 'required|unique:articles|min:5',
             'subtitle' => 'required|unique:articles|min:5',
             'body' => 'required|min:10',
-            'img' => 'image|required',
+            'image' => 'image|required',
             'category' => 'required',
             'tags' => 'required',
 
@@ -59,13 +59,13 @@ class ArticleController extends Controller
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
-            'img' => $request->file('img')->store('public/img'),
+            'image' => $request->file('image')->store('public/image'),
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
             'slug' => Str::slug($request->title),
         ]);
 
-        $tags = explode(',', $request->tags);
+        $tags = explode(', ', $request->tags);
 
         foreach($tags as $tag){
             $newTag = Tag::updateOrCreate([
@@ -102,7 +102,7 @@ class ArticleController extends Controller
             'title' => 'required|unique:articles,title,' . $article->id,
             'subtitle' => 'required|unique:articles,title,' . $article->id,
             'body' => 'required|min:10',
-            'img' => 'image',
+            'image' => 'image',
             'category' => 'required',
             'tags' => 'required',
         ]);
@@ -114,10 +114,10 @@ class ArticleController extends Controller
             'slug' => Str::slug($request->title),
         ]);
 
-        if($request->img){
-            Storage::delete($article->img);
+        if($request->image){
+            Storage::delete($article->image);
             $article->update([
-                'img' =>$request->file('image')->store('public/images'),
+                'image' =>$request->file('image')->store('public/images'),
             ]);
         }
 
@@ -140,6 +140,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        
         foreach($article->tags as $tag){
             $article->tags()->detach($tag);
         }

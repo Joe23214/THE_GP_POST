@@ -26,7 +26,7 @@
           <li><a class="nav-link active dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
           @endif
           @if(Auth::user()->is_revisor)
-          <li><a class="nav-link activedropdown-item" href="{{route('revisor.dashboard')}}">Dashboard del revisore</a></li>
+          <li><a class="nav-link active activedropdown-item" href="{{route('revisor.dashboard')}}">Dashboard del revisore</a></li>
           @endif
           @if(Auth::user()->is_writer)
           <li><a class="nav-link active dropdown-item" href="{{route('writer.dashboard')}}">Dashboard del redattore</a></li>

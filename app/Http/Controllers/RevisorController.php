@@ -29,7 +29,7 @@ class RevisorController extends Controller
 
         return redirect(route('revisor.dashboard'))->with('message', 'hai rifiutato l\'articolo scelto');
     }
-    public function undotArticle(Article $article){
+    public function undoArticle(Article $article){
         $article->update([
             'is_accepted' => NULL,
         ]);

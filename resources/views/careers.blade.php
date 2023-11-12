@@ -18,6 +18,20 @@
             <div class="row">
                 <h3 class="text-center py-5">Lavora con noi</h3>
             </div>
+            @if(session('message'))
+            <div class="alert alert-success text-center">
+                {{session('message')}}
+            </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="row roles">
                 <div class="col-4">
                     <div class="card" style="width: 18rem;">

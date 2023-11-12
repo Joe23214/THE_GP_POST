@@ -10,7 +10,9 @@
           {{ session('message') }}
         </div>
         @endif
-        <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data">
+        
+
+        <form method="post" action="{{route('article.store')}}" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
             <label for="tags" class="form-label">Tags:</label>
@@ -28,9 +30,8 @@
             value="{{ old('subtitle') }}">
           </div>
           <div class="mb-3">
-            <label for="img" class="form-label">Immagine articolo:</label>
-            <input name="img" type="file" class="form-control" id="img"
-            value="{{ old('img') }}">
+            <label for="image" class="form-label">Immagine articolo:</label>
+            <input name="image" type="file" class="form-control" id="image">
           </div>
           <div class="mb-3 my-3">
             <label for="body" class="form-label">Corpo del testo:</label>
@@ -51,7 +52,7 @@
 
             <div class="mt-2 py-5">
               <button type="submit" class="btn btn-primary">Inserisci articolo</button>
-              <a class="btn btn-outline-primary" href="{{ route('welcome') }}">torna alla home</a>
+              <a class="btn btn-outline-primary" href="{{route('welcome')}}">torna alla home</a>
             </div>
             
           </form>

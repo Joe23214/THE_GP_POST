@@ -13,7 +13,7 @@
         @foreach ($articles as $article)
         <div class="col-12 col-md-3">
             <div class="card">
-                <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="...">
+                <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     @foreach ($article->tags as $tag)
                     #{{$tag->name}}

@@ -12,7 +12,7 @@
         <div class="row justify-content-around">
             <div class="col-12 col-md-3">
                 <div class="card">
-                    <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="...">
+                    <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$article->title}}</h5>
                         <p class="card-text">{{$article->subtitle}}</p>
@@ -22,7 +22,7 @@
                                 <p>{{$article->body}}</p>
                                 <div class="text-center">
                                     <a href="{{route('article.index')}}" class="btn btn-outline-primary"> Torna agli articoli</a>
-                                    @if(Auth::user && Auth::user()->is_revisor)
+                                    @if(Auth::user() && Auth::user()->is_revisor)
                                     <a href="{{route('revisor.acceptArticle', compact('article'))}}" class="btn btn-success">accetta articolo</a>
                                     <a href="{{route('revisor.rejectArticle', compact('article'))}}" class="btn btn-danger">rifiuta articolo</a>
                                     @endif

@@ -55,25 +55,16 @@
             @foreach ($user_article as $article)
             <div class="col-4">
                 <div class="card" mb-5 style="width: 18rem;">
-                    <img src="{{ Storage::url($article->image) }}" class="card-img-top" alt="{{ $article->title }}">
+                    <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="{{$article->title}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $article->title }}</h5>
-                        <p class="card-text">{{ $article->subtitle }}</p>
+                        <h5 class="card-title">{{$article->title}}</h5>
+                        <p class="card-text">{{$article->subtitle}}</p>
                         <hr>
-                        <p class="card-text content">{{ $article->content }}</p>
+                        <p class="card-text content">{{$article->content}}</p>
                         <hr>
-                        <p>Author: <a href="#" class="btn btn-outline-dark btn-sm my-1">{{ $article->user->name }}</a></p>
-                        <p>Category: <a href="/homepage/article-category/{{ $article->category->id }}" class="btn btn-outline-dark btn-sm my-1">{{ $article->category->name }}</a></p>
-                        @if (auth()->check())
-                        @if (auth()->user()->id == $article->user_id)
-                        <a class="btn btn-primary my-2" href="/profile/edit-post/{{ $article->id }}">Edit</a>
-                        <form action="/profile/delete-post/{{ $article->id }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">DELETE</button>
-                        </form>
-                        @endif
-                        @endif
+                        <p>Author: <a href="#" class="btn btn-outline-dark btn-sm my-1">{{$article->user->name}}</a></p>
+                        <p>Category: <a href="/homepage/article-category/{{$article->category->id}}" class="btn btn-outline-dark btn-sm my-1">{{$article->category->name}}</a></p>
+                        {{-- <a href="{{route('article.show'), compact('article')}}" class="btn btn-info"> Leggi</a> --}}
                     </div>
                 </div>
             </div>

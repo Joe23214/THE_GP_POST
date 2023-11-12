@@ -10,11 +10,21 @@
             {{ session('message') }}
           </div>
           @endif
-          <form method="" action="" enctype="multipart/form-data">
+          @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
+          <form method="post" action="{{route('article.update', compact('article'))}}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="mb-3">
               <label for="tags" class="form-label">Tags:</label>
-              <input name="tags" id="tags" class="form-control" value={{$article->tags}}">
+              <input name="tags" id="tags" class="form-control" value={{$article->tags->implode('name', ',')}}>
               <span class="small"> Dividi ogni tag con una virgola</span>
             </div>
             <div class="mb-3">
@@ -25,16 +35,16 @@
             <div class="mb-3">
               <label for="subtitle" class="form-label">Sottotitolo Articolo:</label>
               <input name="subtitle" type="text" class="form-control" id="subtitle"
-              value="{{ $article->subtitle}}">
+              value="{{$article->subtitle}}">
             </div>
             <div class="mb-3">
-              <label for="img" class="form-label">Immagine articolo:</label>
-              <input name="img" type="file" class="form-control" id="img">
+              <label for="image" class="form-label">Immagine articolo:</label>
+              <input name="image" type="file" class="form-control" id="image">
             </div>
             <div class="mb-3 my-3">
               <label for="body" class="form-label">Corpo del testo:</label>
               
-              <text-area name="body" type="text" class="form-control text-areacustom" id="body" cols="30" row="7">{{$article->body}}</text-area>
+              <text-area name="body" class="form-control" id="body" cols="30" row="7">{{$article->body}}</text-area>
               
             </div>
             <div class="mb-3">

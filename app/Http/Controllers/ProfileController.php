@@ -25,12 +25,12 @@ class ProfileController extends Controller
         $current_useId = auth()->user()->id;
         $user_article = User::find($current_useId)->articles;
 
-        return view('users.profile', compact('user_article', 'category')); 
+        return view('user.profile', compact('user_article', 'category')); 
     }
 
     public function editInfoUser(){
 
-        return view('users.edit-info');
+        return view('article.edit');
     }
 
     /**

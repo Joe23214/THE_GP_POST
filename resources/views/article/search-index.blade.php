@@ -1,20 +1,21 @@
+<x-layout>
 <div class="container-fluid">
     <div class="col-12">
         <div class="row">
             <div class="col-12 my-5">
-                <h3 class="text-center">Articoli per:  {{ $query }}</h3>
+                <h3 class="text-center">Articoli per:  {{$query}}</h3>
             </div>
             @foreach ($articles as $article)
                 <div class="col-4 py-4">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{Storage::url($articles->img)}}" class="card-img-top" alt="{{ $articles->title }}">
+                        <img src="{{Storage::url($articles->image)}}" class="card-img-top" alt="{{$articles->title}}">
                         <div class="card-body">
                             @foreach ($article->tags as $tag)
                             #{{$tag->name}}
                                 
                             @endforeach
-                            <h5 class="card-title">{{ $articles->title }}</h5>
-                            <p class="card-text">{{ $articles->subtitle }}</p>
+                            <h5 class="card-title">{{$articles->title}}</h5>
+                            <p class="card-text">{{$articles->subtitle}}</p>
                             <a href="{{route('article.byCategory',['Category'=> $article->category->id])}}" class="text-uted text-capitalize small">{{$article->category->name}}</a>
                             <hr>
                             <h5 class="card-title">{{$article->title}}</h5>
@@ -33,3 +34,4 @@
         </div>
     </div>
 </div>
+</x-layout>

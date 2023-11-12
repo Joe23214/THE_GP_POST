@@ -16,7 +16,7 @@ class Article extends Model
         'title' ,
         'subtitle' ,
         'body' , 
-        'img' ,
+        'image' ,
         'user_id',
         'category_id',
         'is_accepted',
