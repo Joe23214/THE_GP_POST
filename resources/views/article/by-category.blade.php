@@ -12,7 +12,7 @@
         <div class="row justify-content-center">
             @foreach ($articles as $article)
             <div class="col-12 col-md-3 p-1">
-                <div class="card">
+                <div class="card customcard">
                     <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="small text-success">

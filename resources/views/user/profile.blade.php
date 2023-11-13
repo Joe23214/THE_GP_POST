@@ -1,9 +1,9 @@
 <x-layout>   
     <div class="container mb-5">
-        <div class="col-12">
+        <div class="col-12 my-5">
             <div class="form-group">
                 <div class="mb-3">
-                    <h1 class="text-center">
+                    <h1 class="text-center my-5">
                         Profilo di {{auth()->user()->name}}
                     </h1>
                 </div>
@@ -31,7 +31,7 @@
         <div class="row">
             @foreach ($user_article as $article)
             <div class="col-12 col-md-3 p-1">
-                <div class="card">
+                <div class="card customcard">
                     <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="small text-success">

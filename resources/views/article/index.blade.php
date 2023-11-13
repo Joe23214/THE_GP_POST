@@ -9,10 +9,10 @@
 
 
 <div class="container-fluid my-5">
-    <div class="row justify-content-center">
+    <div class="row justify-content-around">
         @foreach ($articles as $article)
             <div class="col-12 col-md-3 p-1">
-                <div class="card">
+                <div class="card customcard">
                     <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="small text-success">
@@ -21,7 +21,7 @@
                                 
                             @endforeach
                         </p>
-                        <h5 class="card-title titolocar">{{$article->title}}</h5>
+                        <h5 class="card-title titolocard">{{$article->title}}</h5>
                         <p class="card-text">{{$article->subtitle}}</p>
                         <p class="small text-muted d-flex justify-content-between align-items-center">
                             @if($article->category)

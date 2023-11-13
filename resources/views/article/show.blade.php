@@ -9,9 +9,9 @@
     </div>
 
     <div class="container my-5">
-        <div class="row justify-content-center">
+        <div class="row justify-content-around">
             <div class="col-12 col-md-3">
-                <div class="card">
+                <div class="card customcard">
                     <img src="{{Storage::url($article->image)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$article->title}}</h5>
