@@ -1,40 +1,4 @@
 <x-layout>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&family=Roboto:ital,wght@1,900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-        .roles{
-            margin-left: 6%;
-        }
-        .img{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        img{
-            max-width: 200px;
-            max-height: 200px;
-        }
-        
-        
-        h1{
-            font-family: 'Edu TAS Beginner', cursive;
-            
-        }
-
-        h2{
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 50px;
-        }
-
-        p{
-            font-family: 'Noto Sans Kawi', sans-serif;
-            font-family: 'Roboto', sans-serif;
-        }
-        .sfondox{
-         background-color: rgb(218, 199, 121);
-        }
-    </style>
     <div class="container-fluid mb-5">
         <div class="col-12">
             <div class="row">

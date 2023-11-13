@@ -1,19 +1,3 @@
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&family=Roboto:ital,wght@1,900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap');
-
-
-
-        
-        h1{
-            font-family: 'Edu TAS Beginner', cursive;
-            
-        }
-        p{
-            font-family: 'Noto Sans Kawi', sans-serif;
-            font-family: 'Roboto', sans-serif;
-        }
-</style>
 <x-layout>
 
     <div class="container-fluid p-5 text-center">

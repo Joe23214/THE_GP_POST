@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12">
-          <h1 class="display-1 text-center">Modifica il tuo articolo!</h1>
+          <h2 class="display-1 text-center">Modifica il tuo articolo!</h2>
         </div>
         <div class="col-6">
           @if (session('message'))

@@ -1,28 +1,5 @@
 <x-layout>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&family=Roboto:ital,wght@1,900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-
-
-        
-        h1{
-            font-family: 'Edu TAS Beginner', cursive;
-            
-        }
-
-        h2{
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 50px;
-        }
-
-        p{
-            font-family: 'Noto Sans Kawi', sans-serif;
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
-<div class="container">
+    <div class="container">
     <div class="row">
         @if(session('message'))
         <div class="alert alert-success text-center">

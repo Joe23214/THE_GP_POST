@@ -1,33 +1,3 @@
-<style>
-  .navbar{
-    background-color: rgb(218, 199, 121);
-  }
-
-  .navbar-custom{
-    margin: 5vh 15vh 0vh 15vh ;
-    background-color: rgba(218, 199, 121, 0.532);
-    backdrop-filter: blur(15px);
-    border: 2px solid #198754;
-    border-radius: 20px;
-}
-.transition{
-    transition: 2s;
-}
-
-.backgroundnav{
-    transition: .1s;
-    
-}
-
-.backgroundnav:hover{
-    transform: scale(1.1);
-    color: rgb(249, 249, 249) !important;
-    background-color: rgb(125, 187, 144);
-}
-
-
-
-</style>
 <nav class="navbar navbar-expand-lg customnavbar fixed-top transition" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand text-success backgroundnav" href="#">GP POST</a>

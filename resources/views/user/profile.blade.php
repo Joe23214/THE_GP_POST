@@ -1,38 +1,3 @@
-
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-    .container{
-        width: 40%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.36);
-        margin-top: 8%;
-        padding: 30px 40px 30px 40px;
-        border-radius: 10px;
-    }
-    
-    .card{
-        margin-left: 15%;
-    }
-    
-    img{
-        max-width: 300px;
-        max-height: 200px;
-    }
-
-    h2{
-            font-family: 'Bebas Neue', sans-serif; !important
-        }
-
-        p{
-            font-family: 'Noto Sans Kawi', sans-serif;
-            font-family: 'Roboto', sans-serif;
-        }
-</style>
 <x-layout>   
     <div class="container mb-5">
         <div class="col-12">

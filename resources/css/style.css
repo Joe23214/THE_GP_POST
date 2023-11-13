@@ -4,7 +4,7 @@
 
   .navbar-custom{
     margin: 5vh 15vh 0vh 15vh ;
-    background-color: rgb(218, 199, 121);
+    background-color: rgba(218, 199, 121, 0.532);
     backdrop-filter: blur(15px);
     border: 2px solid #198754;
     border-radius: 20px;
@@ -23,4 +23,17 @@
     color: rgb(249, 249, 249) !important;
     background-color: rgb(125, 187, 144);
 }
+    h1{
+        font-family: 'Edu TAS Beginner', cursive;
+        
+    }
 
+    h2{
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 50px;
+    }
+
+    p{
+        font-family: 'Noto Sans Kawi', sans-serif;
+        font-family: 'Roboto', sans-serif;
+    }
