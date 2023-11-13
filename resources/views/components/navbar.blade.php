@@ -3,13 +3,13 @@
     background-color: rgb(218, 199, 121);
   }
 
-  /* .navbar-custom{
+  .navbar-custom{
     margin: 5vh 15vh 0vh 15vh ;
-    background-color: rgb(218, 199, 121);
+    background-color: rgba(218, 199, 121, 0.532);
     backdrop-filter: blur(15px);
     border: 2px solid #198754;
     border-radius: 20px;
-} */
+}
 .transition{
     transition: 2s;
 }
@@ -28,9 +28,7 @@
 
 
 </style>
-
-
-<nav class="navbar navbar-expand-lg customnavbar transition">
+<nav class="navbar navbar-expand-lg customnavbar fixed-top transition" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand text-success backgroundnav" href="#">GP POST</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

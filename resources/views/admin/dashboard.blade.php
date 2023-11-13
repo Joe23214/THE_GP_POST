@@ -73,6 +73,19 @@
                 </div>
             </div>
         </div>
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2>Le categorie della piattaforma</h2>
+                    <x-metainfo-table :metaInfos="$categories" metaType="categorie"></x-metainfo-table>
+                    <form action="{{route('admin.storeCategory')}}" method="POST" class="d-flex">
+                        @csrf
+                        <input type="text" name="name" class="form-controm me-2" placeholder="inserisci una nuova categoria">
+                        <button type="submit" class="btn btn-success">aggiungi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         
 
 </x-layout>

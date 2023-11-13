@@ -36,13 +36,13 @@
                     @csrf
                     @method('put')
                     <input type="text" name="name" placeholder="nuovo nome" class="form-control w-50 d-inline">
-                    <button type="submit" class="btn btn-info">Aggiorna</button>
+                    <button type="submit" class="btn btn-success">Aggiorna</button>
                 </form>
             </td>
             <td>
-                <form {{route('admin.deleteCategory', ['category' => $metaInfo])}}" method="POST">
+                <form action="{{route('admin.deleteCategory', ['category' => $metaInfo])}}" method="POST">
                     @csrf
-                    @method('DELETE')
+                    @method('delete')
                     <button type="submit" class="btn btn-danger">elimina</button>
                 </form>
             </td>

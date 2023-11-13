@@ -59,7 +59,7 @@ public function deleteTag(Tag $tag){
 }
 public function editCategory(Request $request, Category $category){
     $request->validate([
-        'name' => 'required|uinque:categories',
+        'name' => 'required|unique:categories',
     ]);
 
     $category->update([
@@ -68,7 +68,7 @@ public function editCategory(Request $request, Category $category){
     ]);
     return redirect(route('admin.dashboard'))->with('message', 'hai correttamente aggiornato la categoria');
 }
-public function delteCategory(Category $category){
+public function deleteCategory(Category $category){
     $category->delete();
     return redirect(route('admin.dashboard'))->with('message', 'hai correttamente eliminato il tag');
 }
