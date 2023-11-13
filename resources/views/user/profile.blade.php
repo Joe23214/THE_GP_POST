@@ -28,7 +28,18 @@
     @if (auth()->user()->is_writer)
     <h2 class="text-center py-5 display-3">All publiched</h2>
     <div class="container-fluid py-5">
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-success my-5">Info</button>
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop3" type="button" class="btn btn-success dropdown-toggle my-5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
+                <a class="dropdown-item" href="{{ route('article.latest') }}">i più recenti</a>
+                <a class="dropdown-item" href="{{ route('article.oldest') }}">i meno recenti</a>
+                </div>
+            </div>
+        </div>
         <div class="row">
+            
             @foreach ($user_article as $article)
             <div class="col-12 col-md-3 p-1">
                 <div class="card customcard">

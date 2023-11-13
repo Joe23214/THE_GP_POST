@@ -30,6 +30,8 @@ Route::get('/profile/edit-information', [ProfileController::class, 'editInfoUser
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careers.submit');
 Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
+Route::get('/homepage/latest-article', [ArticleController::class, 'latest'])->name('article.latest');
+Route::get('/homepage/oldest-article', [ArticleController::class, 'oldest'])->name('article.oldest');
 
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');

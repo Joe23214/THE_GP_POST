@@ -7,7 +7,19 @@
             </h1>
         </div>
     </div>
-
+    <div class="col-12">
+        {{-- item order selector --}}
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-success my-5">Info</button>
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop3" type="button" class="btn btn-success dropdown-toggle my-5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
+                <a class="dropdown-item" href="{{ route('article.latest') }}">i più recenti</a>
+                <a class="dropdown-item" href="{{ route('article.oldest') }}">i meno recenti</a>
+                </div>
+            </div>
+        </div>
+        </div>
     <div class="container my-5">
         <div class="row justify-content-center">
             @foreach ($articles as $article)

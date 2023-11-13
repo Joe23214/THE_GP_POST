@@ -168,4 +168,17 @@ class ArticleController extends Controller
         $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view ('article.search-index', compact ('articles','query'));
     }
+    public function latest(Category $category)
+    {
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
+
+        return view('welcome', compact('articles', 'category'));
+    }
+
+    public function oldest(Category $category){
+
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'asc')->take(6)->get();
+
+        return view('welcome', compact('articles', 'category'));
+    }
 }
