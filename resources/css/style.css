@@ -1,6 +1,9 @@
 .navbar{
     background-color: rgb(218, 199, 121);
   }
+.footercust{
+background-color: rgb(218, 199, 121) !important;
+}
 
   .navbar-custom{
     margin: 5vh 10vh 0vh 10vh ;
